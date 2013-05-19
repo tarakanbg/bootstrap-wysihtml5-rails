@@ -334,6 +334,8 @@
                 if (!activeButton) {
                     self.editor.currentView.element.focus(false);
                     caretBookmark = self.editor.composer.selection.getBookmark();
+                    insertLinkModal.removeClass('fade');
+                    insertLinkModal.removeClass('hide');
                     insertLinkModal.appendTo('body').modal('show');
                     insertLinkModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
                         e.stopPropagation();
