@@ -46,7 +46,7 @@
         "link": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-link-modal modal'>" +
+              "<div class='bootstrap-wysihtml5-insert-link-modal modal hide fade'>" +
                 "<div class='modal-header'>" +
                   "<a class='close' data-dismiss='modal'>&times;</a>" +
                   "<h3>" + locale.link.insert + "</h3>" +
@@ -67,7 +67,7 @@
         "image": function(locale, options) {
             var size = (options && options.size) ? ' btn-'+options.size : '';
             return "<li>" +
-              "<div class='bootstrap-wysihtml5-insert-image-modal modal'>" +
+              "<div class='bootstrap-wysihtml5-insert-image-modal modal hide fade'>" +
                 "<div class='modal-header'>" +
                   "<a class='close' data-dismiss='modal'>&times;</a>" +
                   "<h3>" + locale.image.insert + "</h3>" +
@@ -269,7 +269,9 @@
 
                 if (!activeButton) {
                     self.editor.currentView.element.focus(false);
-                    caretBookmark = self.editor.composer.selection.getBookmark();
+                    caretBookmark = self.editor.composer.selection.getBookmark();                    
+                    insertImageModal.removeClass('fade');
+                    insertImageModal.removeClass('hide');
                     insertImageModal.appendTo('body').modal('show');
                     insertImageModal.on('click.dismiss.modal', '[data-dismiss="modal"]', function(e) {
                         e.stopPropagation();
